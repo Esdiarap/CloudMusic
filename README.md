@@ -1,24 +1,28 @@
-# cloud_music_v2
+# cloud_music_vue2
 
-## Project setup
+## 安装
+
 ```
-npm install
+git clone -b master git@github.com:Esdiarap/CloudMusic.git
 ```
 
-### Compiles and hot-reloads for development
 ```
+git clone git@github.com:Binaryify/NeteaseCloudMusicApi.git
+```
+
+## 项目设置
+
+```
+yarn
+cd .\NeteaseCloudMusicApi\
+yarn
+```
+
+### 运行
+
+```
+cd .\NeteaseCloudMusicApi\
+node .\app.js
+cd ../
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
