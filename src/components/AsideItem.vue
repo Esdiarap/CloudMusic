@@ -35,6 +35,7 @@ export default {
 .side-content {
   width: 100%;
   margin-bottom: 20px;
+
   & > div {
     & > a {
       display: flex;
