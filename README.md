@@ -26,3 +26,9 @@ node .\app.js
 cd ../
 npm run serve
 ```
+
+## 项目预览
+
+![pic1](./preview/pic1.png)
+
+![pic2](./preview/pic2.png)
