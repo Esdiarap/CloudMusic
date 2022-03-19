@@ -180,15 +180,14 @@ export default {
       getSongInfoAPI({
         id: id
       }).then(res => {
-        // console.log("我是第二个" + this.songurladd);
         if (this.songURL) {
           this.$store.dispatch("addsong", {
             // 歌名, 歌手名，歌曲地址，歌曲图片地址，歌词
-            songName: res.data.songs[0].name,
-            singerName: res.data.songs[0].ar[0].name,
-            songURL: this.songURL,
-            songPicURL: res.data.songs[0].al.picUrl,
-            lyric: this.songLyric,
+            name: res.data.songs[0].name,
+            artist: res.data.songs[0].ar[0].name,
+            url: this.songURL,
+            cover: res.data.songs[0].al.picUrl,
+            lrc: this.songLyric,
           });
           console.log(`成功上传`)
           // console.log(res.data.songs[0].name);

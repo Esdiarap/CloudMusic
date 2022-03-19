@@ -1,38 +1,50 @@
 import Vue from "vue";
 import Vuex from 'vuex';
-// import createPersistedState from 'vuex-persistedstate'
+import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex);
 
 // 准备actions-- 用于响应组件中的动作
-const actions = {
-    addsong(context, value){
+let actions = {
+    addsong(context, value) {
         context.commit('ADDSONG', value)
     }
 }
 // 准备mutations-- 用于操作数据state
-const mutations = {
+let mutations = {
     ADDSONG(state, song) {
         state.songInfo.push({
-            songName: song.songName,
-            artist: song.singerName,
-            songURL: song.songURL,
-            picURL: song.songPicURL,
-            lyric: song.lyric
+            name: song.name,
+            artist: song.artist,
+            url: song.url,
+            cover: song.cover,
+            lrc: song.lrc
         })
     }
 }
 // 准备state-- 用于存储数据
-const state = {
+let state = {
     // 搜索关键字
     searchKeyWords: "",
     // 歌曲搜索总数
-    searchSongCount:"",
+    searchSongCount: "",
 
-    songInfo:[],
+    songInfo: [
+        {
+            name: '脱胎换骨',
+            artist: '李荣浩',
+            url: 'http://m801.music.126.net/20220309204632/f9835a02cdd01aeafde7b9f334ae611f/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/13311638108/1061/4ba0/2763/a0af113d3b426cc89f9298c192ec3297.mp3',
+            cover: 'https://p1.music.126.net/u3a_9vYOQC4xz7-kKOCJlA==/109951167114856500.jpg',
+            lrc: '[00:00.000] 作词 : 李荣浩\\n[00:01.000] 作曲 : 李荣浩\\n[00:02.000] 编曲 : 李荣浩\\n[00:03.000] 制作人 : 李荣浩\\n[00:20.69]我的包\\n[00:24.80]要放好\\n[00:28.35]不然你会觉得太烦躁\\n[00:34.62]烟酒的味道\\n[00:38.29]我的朋友说话 是?聊\\n[00:44.95]让我换些人结交\\n[00:50.24]\\n[00:51.01]我不爱\\n[00:54.43]太多话\\n[00:57.66]你希望我能如流对答\\n[01:04.48]人情世故\\n[01:07.65]怎么和人相处读什么书\\n[01:14.64]你说是为了我前途\\n[01:21.96]\\n[01:22.40]如果你非\\n[01:24.99]要亲?把我打造成谁谁谁\\n[01:29.47]我也奉陪\\n[01:32.19]骨换了几堆\\n[01:34.24]怎么还不完美\\n[01:36.79]\\n[01:37.12]如果你非\\n[01:39.47]觉得成为和你?样的才对\\n[01:45.09]那谁为了谁改变才可歌可悲\\n[01:52.40]当初为什么要成为?对\\n[01:58.58]\\n[02:13.92]我不爱\\n[02:17.36]太多话\\n[02:20.86]你希望我能如流对答\\n[02:27.08]人情世故\\n[02:30.83]怎么和人相处读什么书\\n[02:37.64]你说是为了我前途\\n[02:45.30]\\n[02:45.71]如果你非\\n[02:48.01]要亲?把我打造成谁谁谁\\n[02:52.45]我也奉陪\\n[02:55.18]骨换了几堆\\n[02:57.18]怎么还不完美\\n[02:59.52]\\n[03:00.21]如果你非\\n[03:02.62]觉得成为和你?样的才对\\n[03:07.90]那谁为了谁改变才可歌可悲\\n[03:12.83]\\n[03:13.13]算了吧 错与对\\n[03:19.27]我已做好脱胎换骨准备\\n[03:25.73]\\n[03:26.02]如果你非\\n[03:28.59]要亲?把我打造成谁谁谁\\n[03:33.27]我也奉陪\\n[03:35.85]我面目全非\\n[03:37.75]这样完不完美\\n[03:40.57]\\n[03:40.83]如果你非\\n[03:43.42]觉得成为和你?样的才对\\n[03:48.42]那谁为了谁改变才可歌可悲\\n[03:57.81]没关系就让我遁入轮回\\n[04:04.85]\\n[04:06.109] 吉他 : 李荣浩\\n[04:08.133] 贝斯 : 李荣浩\\n[04:10.157] 弦乐编写 : 李荣浩\\n[04:12.181] 弦乐 : 国际首席爱乐乐团\\n[04:14.205] 和音 : 李荣浩\\n[04:16.229] 录音师 : 李荣浩\\n[04:18.253] 混音师 : 李荣浩\\n[04:20.277] 音乐制作助理 : 青格乐\\n[04:22.301] 录音工作室 : 北京一样音乐录音室\\n[04:24.325] 混音工作室 : 北京一样音乐录音室\\n[04:26.349] 母带制作 : 李荣浩\\n[04:28.373] 母带后期处理工程师 : 周天澈\\n[04:30.397] 母带后期处理录音室 : Studio 21A\\n',
+        }
+    ],
 }
 
 export default new Vuex.Store({
     actions,
     mutations,
-    state
+    state,
+    // 歌曲生成周期
+    plugins:[createPersistedState({
+        storage:window.sessionStorage
+    })]
 });

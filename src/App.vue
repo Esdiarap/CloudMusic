@@ -2,17 +2,20 @@
   <div id="app">
     <TopBar></TopBar>
     <MainApp></MainApp>
+    <APlayer></APlayer>
   </div>
 </template>
 
 <script>
 import MainApp from "@/components/MainApp";
 import TopBar from "@/components/TopBar";
+import APlayer from "@/components/APlayer";
 export default {
   name: 'App',
   components: {
     MainApp,
-    TopBar
+    TopBar,
+    APlayer
   }
 }
 </script>
