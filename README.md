@@ -22,7 +22,7 @@ yarn
 
 ```
 cd .\NeteaseCloudMusicApi\
-node app.js
+node .\app.js
 cd ../
 npm run serve
 ```
